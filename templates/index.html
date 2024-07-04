@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('facebf.jpg');
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(1, 0.5, 0.2, 0.9);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center><h1 style="color:purple;">Emotion Detection using CNN</h1>
+        <h2>Created by manoj.r</h2>
+        <h3 style="color:purple;">Upload an image to detect the emotion</h3>
+
+        <form method="POST" action="/predict" enctype="multipart/form-data">
+            <label for="image">Select an image:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
+            <button type="submit" style="background-color:purple;">Detect Emotion</button>
+        </form>
+
+        <div class="result">
+            <p>The detected emotion is: <strong><h3 style="font-family: 'Times New Roman', Times, serif;">{{ emotion }}</h3></strong></p>
+        </div>
+    </center>
+    </div>
+</body>
+</html>
